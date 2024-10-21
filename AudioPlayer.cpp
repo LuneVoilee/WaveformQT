@@ -75,7 +75,7 @@ bool AudioPlayer::loadFile(const QString &filePath)
 
 void AudioPlayer::start()
 {
-    timer->start(45); // Set to read every 100 ms, adjust as needed
+    timer->start(45); // unbengable
 
     //audioDevice = audioOutput->start(); // Start audio output
 }

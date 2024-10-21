@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(centralWidget);
 
     // Load and play the file
-    audioPlayer->loadFile("/home/qywy/qt/mufasa.wav");
+    audioPlayer->loadFile("/home/qywy/qt/1.wav");
     audioPlayer->start();
 
     // Connect signal and slot for real-time waveform update
