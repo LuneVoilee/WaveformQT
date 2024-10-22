@@ -17,7 +17,8 @@ public:
     void start();
 
 signals:
-    void audioDataReady(QVector<float> FBuffer); // Signal to notify when waveform data is ready for update
+    // Signal to notify when waveform data is ready for update
+    void audioDataReady(QVector<float> FBuffer);
 
 private slots:
     void readNextChunk();

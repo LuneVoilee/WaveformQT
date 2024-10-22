@@ -18,4 +18,4 @@ private:
     QVector<float> currentSamples;
 };
 
-#endif // WAVEFORMWIDGET_H
+#endif

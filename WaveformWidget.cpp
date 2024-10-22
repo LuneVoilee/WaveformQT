@@ -10,7 +10,7 @@ WaveformWidget::WaveformWidget(QWidget *parent)
 void WaveformWidget::setSamples(const QVector<float> &samples)
 {
     currentSamples = samples;
-    update();  // Request a repaint of the widget
+    update();
 }
 
 void WaveformWidget::paintEvent(QPaintEvent *event)

@@ -8,8 +8,7 @@ AudioPlayer::AudioPlayer(QObject *parent)
     connect(timer, &QTimer::timeout, this, &AudioPlayer::readNextChunk);
 }
 
-AudioPlayer::~AudioPlayer()
-{
+AudioPlayer::~AudioPlayer(){
     if (file) {
         sf_close(file);
     }
@@ -27,8 +26,7 @@ AudioPlayer::~AudioPlayer()
     }
 }
 
-bool AudioPlayer::loadFile(const QString &filePath)
-{
+bool AudioPlayer::loadFile(const QString &filePath){
     sfinfo = {};
     file = sf_open(filePath.toUtf8().constData(), SFM_READ, &sfinfo);
     if (!file) {
@@ -73,21 +71,18 @@ bool AudioPlayer::loadFile(const QString &filePath)
     return true;
 }
 
-void AudioPlayer::start()
-{
+void AudioPlayer::start(){
     timer->start(45); // unbengable
 
     //audioDevice = audioOutput->start(); // Start audio output
 }
 
-void AudioPlayer::readNextChunk()
-{
+void AudioPlayer::readNextChunk(){
     //(framesRead * channel) may less than bufferSize
     audioBuffer.resize(bufferSize * sfinfo.channels * sizeof(short));
     sf_count_t framesRead = sf_readf_short(file, reinterpret_cast<short*>(audioBuffer.data()), bufferSize);
 
     if (framesRead > 0) {
-
         audioDevice->write(audioBuffer);
         QVector<float> FBuffer;
         for (int i = 0; i < framesRead * sfinfo.channels; ++i) {
